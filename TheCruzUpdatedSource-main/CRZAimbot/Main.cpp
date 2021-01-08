@@ -1,6 +1,7 @@
 
 #include "Main.h"
-
+#define VK_RBUTTON 0x02
+#define VK_MENU 0x12
 
 uintptr_t GamePid = 0;
 uintptr_t GameBaseAddress = 0;
@@ -17,6 +18,7 @@ float smoothness = 1.f; //Default Smooth
 
 
 bool printableOut = false;
+bool aimTeam = false;
 
 int enable_aimbot = 1;
 int enable_aimbot_lock_mode = 1;
@@ -207,6 +209,19 @@ void ProcessPlayer(Entity* LPlayer, Entity* target, UINT64 entitylist, int id) {
         k_obser = 0;
     }
 
+
+    bool k_MENU = 0;
+    bool MENU = (GetAsyncKeyState(VK_MENU) & 0x8000) != 0;
+    if (MENU && k_MENU == 0) {
+        k_MENU = 1;
+        Beep(900, 300);
+        aimTeam = !aimTeam;
+    }
+    else if (k_MENU == 1) {
+        k_MENU = 0;
+    }
+
+
     if (enable_glow_hack == 1) {
         if ((int)target->buffer[GLOW_CONTEXT] != 1 || (int)target->buffer[GLOW_VISIBLE_TYPE] != 1 || (int)target->buffer[GLOW_FADE] != 872415232) {
             float currentEntityTime = 5000.f;//(float)target->buffer[0xEE4];
@@ -257,7 +272,7 @@ void ProcessPlayer(Entity* LPlayer, Entity* target, UINT64 entitylist, int id) {
             return;
         }
 
-        if (entity_team == LPlayer->getTeamId()) {
+        if (aimTeam == false && entity_team == LPlayer->getTeamId()) {
             Unprotect(_ReturnAddress());
             return;
         }
@@ -565,7 +580,7 @@ void CheatLoop() {
         }
 
         bool k_aimlock = 0;
-        bool aimlock = (GetAsyncKeyState(VK_NUMPAD2) & 0x8000) != 0;
+        bool aimlock = (GetAsyncKeyState(VK_DELETE) & 0x8000) != 0;
         if (aimlock && k_aimlock == 0) {
             k_aimlock = 1;
             if (enable_aimbot_lock_mode) {
@@ -604,7 +619,7 @@ void CheatLoop() {
 
         if (enable_aimbot == 1) {
             Unprotect(milliseconds_now);
-            bool key_pressed = (GetKeyState(VK_LBUTTON) & 0x8000);
+            bool key_pressed = (GetKeyState(VK_RBUTTON) & 0x8000);
             if (AimTarget > 0 && key_pressed && nextAim < milliseconds_now() && (Spectators > 0 && !(disable_aimbot_with_spectators==1) || Spectators == 0)) {
                 Protect(milliseconds_now);
 

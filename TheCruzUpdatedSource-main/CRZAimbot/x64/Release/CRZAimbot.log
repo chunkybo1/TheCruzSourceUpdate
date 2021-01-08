@@ -1,1 +1,12 @@
-﻿
+﻿  Main.cpp
+C:\Users\chach\Desktop\TheCruzUpdatedSource-main\CRZAimbot\Main.cpp(566,25): warning C4305: '=': truncation from 'int' to 'bool'
+C:\Users\chach\Desktop\TheCruzUpdatedSource-main\CRZAimbot\Main.cpp(578,30): warning C4806: '==': unsafe operation: no value of type 'bool' promoted to type 'int' can equal the given constant
+  Driver.cpp
+  Entity.cpp
+  Math.cpp
+  MemProtector.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 95 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  CRZAimbot.vcxproj -> C:\Users\chach\Desktop\TheCruzUpdatedSource-main\x64\Release\CRZAimbot.dll
