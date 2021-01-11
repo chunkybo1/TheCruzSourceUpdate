@@ -196,11 +196,12 @@ void ProcessPlayer(Entity* LPlayer, Entity* target, UINT64 entitylist, int id) {
     }
 
     bool k_obser = 0;
-    bool displayobser = (GetAsyncKeyState(VK_NUMPAD1) & 0x8000) != 0;
+    bool displayobser = (GetAsyncKeyState(VK_F10) & 0x8000) != 0;
     if (displayobser && k_obser == 0) {
         k_obser = 1;
-        if (Spectators >= 1) {
-            Spectators = 1;
+        if (Spectators >= 1) 
+        {
+        
             std::cout << "Spectators: " << Spectators << "\n";
             Beep(900, 500);
         }
@@ -351,7 +352,7 @@ uintptr_t StartTimeToAim = 0;
 int CurrentTargetBone = 3;
 int targets[] = { 7,5,3,2 };
 int action = 1;
-int boneIndex = 0;
+int boneIndex = 8;
 Vector lastSet;
 bool TargetLocked = false;
 
@@ -622,7 +623,7 @@ void CheatLoop() {
             bool key_pressed = (GetKeyState(VK_RBUTTON) & 0x8000);
             if (AimTarget > 0 && key_pressed && nextAim < milliseconds_now() && (Spectators > 0 && !(disable_aimbot_with_spectators==1) || Spectators == 0)) {
                 Protect(milliseconds_now);
-
+  
                 if (lastAimTarget != AimTarget) {
                     TargetLocked = false;
                     Unprotect(milliseconds_now);
@@ -692,7 +693,7 @@ void Configure() {
     char hi_str[] = { 'H','i',',',' ','W','e','l','c','o','m','e',' ','t','o',' ','C','R','Z',' ','E','F','I',' ','C','h','e','a','t','\n','A','n','s','w','e','r',' ','a','l','l',' ','t','h','e',' ','q','u','e','s','t','i','o','n','s',' ','w','i','t','h',' ','1',' ','o','r',' ','0',' ','f','o','r',' ','t','r','u','e','/','f','a','l','s','e','\n','\0' };
     std::cout << hi_str;
     memset(hi_str, 0, sizeof(hi_str));
-    char hi2_str[] = { 'T','h','i','s',' ','c','h','e','a','t',' ','i','s',' ','a','b','s','o','l','u','t','e','l','y',' ','f','r','e','e',' ','a','t',' ','U','n','k','n','o','w','n','C','h','e','a','t','s','\n','\0' };
+    char hi2_str[] = { 'I','f',' ','y','o','u',' ','p','a','i','d',' ','f','o','r',' ','t','h','i','s',' ','y','o','u',' ','g','o','t',' ','s','c','a','m',' m','e','d','\n','\0' };
     std::cout << hi2_str;
     memset(hi2_str, 0, sizeof(hi2_str));
     char aimbot_str[] = { 'D','o',' ','y','o','u',' ','w','a','n','t',' ','t','o',' ','e','n','a','b','l','e',' ','a','i','m','b','o','t','?',':',' ','\0' };

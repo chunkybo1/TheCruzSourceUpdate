@@ -1,6 +1,9 @@
 ﻿  Main.cpp
-C:\Users\chach\Desktop\TheCruzUpdatedSource-main\CRZAimbot\Main.cpp(566,25): warning C4305: '=': truncation from 'int' to 'bool'
-C:\Users\chach\Desktop\TheCruzUpdatedSource-main\CRZAimbot\Main.cpp(578,30): warning C4806: '==': unsafe operation: no value of type 'bool' promoted to type 'int' can equal the given constant
+C:\Users\chach\Desktop\TheCruzUpdatedSource-main\CRZAimbot\Main.cpp(567,25): warning C4305: '=': truncation from 'int' to 'bool'
+C:\Users\chach\Desktop\TheCruzUpdatedSource-main\CRZAimbot\Main.cpp(579,30): warning C4806: '==': unsafe operation: no value of type 'bool' promoted to type 'int' can equal the given constant
+C:\Users\chach\Desktop\TheCruzUpdatedSource-main\CRZAimbot\Main.cpp(696,156): warning C4838: conversion from 'int' to 'char' requires a narrowing conversion
+C:\Users\chach\Desktop\TheCruzUpdatedSource-main\CRZAimbot\Main.cpp(696,179): warning C4305: 'initializing': truncation from 'int' to 'char'
+C:\Users\chach\Desktop\TheCruzUpdatedSource-main\CRZAimbot\Main.cpp(696,156): warning C4309: 'initializing': truncation of constant value
   Driver.cpp
   Entity.cpp
   Math.cpp
